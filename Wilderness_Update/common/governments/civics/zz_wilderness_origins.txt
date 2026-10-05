@@ -1,0 +1,67 @@
+origin_wilderness = {
+    is_origin = yes
+    icon = "gfx/interface/icons/origins/origins_wilderness.dds"
+    picture = GFX_origins_wilderness
+
+    room = "wilderness_room"
+    city_graphical_culture = "wilderness_01"
+
+    playable = {
+        has_biogenesis_dlc = yes
+    }
+
+    possible = {
+        authority = {
+            OR = { # required to force the custom tooltip
+                text = tt_auth_mutualistic_intelligence
+                value = auth_hive_mind
+            }
+        }
+        graphical_culture = {
+            OR = {
+                text = graphical_culture_tooltip_biological
+                value = biogenesis_01
+                value = biogenesis_02
+            }
+        }
+        civics = {
+            NOR = {
+                value = civic_hive_toxic_baths
+                value = civic_entropy_drinkers_hive_mind
+                value = civic_hive_superstitious_beliefs
+                value = civic_twisted_experimenters_hive_mind
+                value = civic_hive_chosen
+                value = civic_hive_world_forgers
+                value = civic_hive_scorched_earth
+                value = civic_hive_galvanic_symbiosis
+            }
+        }
+        preferred_planet_class = {
+            NOT = {
+                text = does_not_have_volcanic_homeworld
+                value = pc_volcanic
+            }
+        }
+        is_nomadic = no
+    }
+    advanced_start = yes
+
+    description = origin_tooltip_wilderness_effects
+    flags = {
+        uses_biomass
+        custom_start_screen
+        virtual_jobs
+    }
+
+    modifier = {
+        planet_building_capacity_add = 5
+    }
+
+    random_weight = {
+        base = 5
+    }
+
+    traits = {
+        trait = trait_wilderness
+    }
+}
