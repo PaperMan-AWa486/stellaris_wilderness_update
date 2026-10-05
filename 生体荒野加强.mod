@@ -5,5 +5,5 @@ tags={
 }
 name="生体荒野加强"
 supported_version="v4.*"
-path="C:/Users/lenovo/Documents/Paradox Interactive/Stellaris/mod/生体荒野加强"
+path="Enter your mod's path"
 remote_file_id="3813894957"
