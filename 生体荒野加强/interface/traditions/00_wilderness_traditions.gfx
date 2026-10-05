@@ -1,0 +1,16 @@
+spriteTypes = {
+    spriteType = {
+        name = "GFX_tr_cloning_artificial_population_wilderness"
+        textureFile = "gfx/interface/icons/traditions/tradition_cloning_artificial_population_wilderness.dds"
+    }
+
+    spriteType = {
+        name = "GFX_tr_cloning_genomic_growth_wilderness"
+        textureFile = "gfx/interface/icons/traditions/tradition_cloning_genomic_growth_wilderness.dds"
+    }
+
+    spriteType = {
+        name = "GFX_tr_purity_heightened_attributes_wilderness"
+        textureFile = "gfx/interface/icons/traditions/tradition_purity_heightened_attributes_wilderness.dds"
+    }
+}

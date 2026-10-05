@@ -1,0 +1,163 @@
+namespace = wilderness_update
+
+carrier_event = {
+	id = wilderness_update.1
+	hide_window = yes
+    is_triggered_only = yes
+
+    trigger = {
+        exists = from
+        from = {
+            is_wilderness_empire = yes
+            has_valid_civic = civic_hive_guided_sapience
+        }
+        is_artificial = no
+    }
+
+    immediate = {
+        set_carrier_flag = create_presapients_no_colonize
+        if = {
+            limit = {
+                NOR = {
+                    has_deposit = d_genesis_preserve
+                    has_deposit = d_genesis_monument
+                }
+            }
+            add_deposit = d_genesis_preserve
+        }
+    }
+}
+
+carrier_event = {
+    id = wilderness_update.2
+    title = cyber.7000.name
+    desc = wilderness_update.2.desc
+    picture = GFX_evt_alien_nature
+    show_sound = event_alien_nature
+    location = ROOT
+    trackable = yes
+    is_triggered_only = yes
+    trigger = {
+        owner = { is_guided_sapience_empire = yes }
+        has_carrier_flag = create_presapients_no_colonize
+        NOT = { has_planet_flag = pre_sapient_planet }
+        is_artificial = no
+    }
+
+    option = {
+        name = cyber.7000.a
+        owner = {
+            add_resource = {
+                unity = 250
+                influence = 5
+                mult = value:presapients_guided_mult
+            }
+            if = {
+                limit = {
+                    NOT = { has_technology = tech_epigenetic_triggers }
+                }
+                add_tech_progress = {
+                    tech = tech_epigenetic_triggers
+                    progress = 0.1
+                }
+            }
+        }
+        hidden_effect = {
+            owner = {
+                change_variable = {
+                    which = presapients_guided
+                    value = 1
+                }
+            }
+        }
+    }
+    after = {
+        hidden_effect = {
+            remove_carrier_flag = create_presapients_no_colonize
+            carrier_event = { id = cyber.7010 }
+        }
+    }
+}
+
+carrier_event = {
+    id = wilderness_update.3
+    title = cyber.7001.name
+    desc = wilderness_update.2.desc
+    picture = GFX_evt_alien_nature
+    show_sound = event_alien_nature
+    location = ROOT
+    trackable = yes
+    is_triggered_only = yes
+    trigger = {
+        owner = { is_guided_sapience_empire = yes }
+        has_planet_flag = pre_sapient_planet
+        NOT = { has_carrier_flag = genesis_guided_pre_sapient_planet }
+    }
+
+    option = {
+        name = cyber.7001.a
+        owner = {
+            add_resource = {
+                unity = 250
+                influence = 5
+                mult = value:presapients_guided_mult
+            }
+            if = {
+                limit = {
+                    NOR = {
+                        has_technology = tech_epigenetic_triggers
+                        has_tech_option = tech_epigenetic_triggers
+                    }
+                }
+                add_tech_progress = {
+                    tech = tech_epigenetic_triggers
+                    progress = 0.1
+                }
+            }
+        }
+        hidden_effect = {
+            owner = {
+                change_variable = {
+                    which = presapients_guided
+                    value = 1
+                }
+            }
+        }
+    }
+}
+
+carrier_event = {
+    id = wilderness_update.10
+    hide_window = yes
+    is_triggered_only = yes
+
+    trigger = {
+        exists = owner
+        owner = {
+            is_wilderness_empire = yes
+            has_valid_civic = civic_hive_guided_sapience
+        }
+    }
+
+    immediate = {
+        carrier_event = { id = wilderness_update.11 days = 10 }
+    }
+}
+
+carrier_event = {
+    id = wilderness_update.11
+    hide_window = yes
+    is_triggered_only = yes
+
+    immediate = {
+        every_owned_species = {
+            limit = {
+                has_presapient_trait = yes
+                NOT = { has_trait = trait_wilderness }
+            }
+            change_species_characteristics = {
+                add_trait = trait_wilderness
+            }
+        }
+    }
+}

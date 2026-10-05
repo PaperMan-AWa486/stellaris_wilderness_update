@@ -1,0 +1,101 @@
+# 覆盖原版 can_terraform_planet（common/game_rules/00_rules.txt）
+# 改动：拥有生体荒野起源（origin_wilderness）的国家，环境改造不受“前智慧种族保护”政策限制。
+# 其余条件与原版保持一致，原版更新后需要同步此文件。
+
+#Root = country
+#This = planet
+can_terraform_planet = {
+	custom_tooltip = {
+		fail_text = terraform_fail_consecrated
+		NOT = {
+			has_modifier = consecrated_world
+		}
+	}
+
+	custom_tooltip = {
+		fail_text = terraform_fail_no_presapient_protection_or_no_presapients
+		NAND = {
+			AND = {
+				exists = root
+				root = {
+					has_policy_flag = pre_sapients_protect
+					NOT = { has_origin = origin_wilderness }
+				}
+			}
+			any_owned_species = {
+				is_sapient = no
+				NOT = { has_trait = trait_nascent_stage }
+			}
+		}
+	}
+	custom_tooltip = {
+		fail_text = "requires_actor_not_devouring_swarm_lithoid"
+		exists = root
+		root = { is_lithoid_devouring_swarm = no }
+	}
+	custom_tooltip = {
+		fail_text = "legendary_leader_planet_no_terraform"
+		exists = root
+		if = {
+			limit = {
+				root = { is_wilderness_empire = no }
+			}
+			this = {
+				NOT = { has_planet_flag = legendary_leader_planet }
+			}
+		}
+	}
+
+	custom_tooltip = {
+		fail_text = requires_not_relentless_industrialists_situation
+		NOT = {
+			any_targeting_situation = {
+				is_situation_type = relentless_industrialists_situation
+			}
+		}
+	}
+
+	custom_tooltip = {
+		fail_text = terraform_fail_is_metal_planet
+		NOT = {
+			has_modifier = metal_planet
+		}
+	}
+
+	custom_tooltip = {
+		fail_text = COLONIZATION_IMPOSSIBLE_DEFENDED_PLANET
+		NOT = { has_planet_flag = planet_defended_forbid_colonization }
+	}
+
+	custom_tooltip = {
+		fail_text = "COLONIZATION_IMPOSSIBLE_SMEEGIBB_PLANET"
+		NOT = { has_planet_flag = cannot_colonize_smeegibb_shelter }
+	}
+
+	custom_tooltip = {
+		fail_text = "COLONIZATION_IMPOSSIBLE_WILDERNESS_TECH"
+		OR = {
+			NAND = {
+				owner? = {
+					is_wilderness_empire = yes
+					NOT = { has_technology = tech_terrestrial_sculpting }
+				}
+				OR = {
+					AND = {
+						root = { has_country_flag = started_wet }
+						is_wet = no
+					}
+					AND = {
+						root = { has_country_flag = started_dry }
+						is_dry = no
+					}
+					AND = {
+						root = { has_country_flag = started_cold }
+						is_cold = no
+					}
+				}
+			}
+			is_planet_class = pc_gaia
+		}
+	}
+}
