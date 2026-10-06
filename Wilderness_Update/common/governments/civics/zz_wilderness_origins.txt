@@ -28,7 +28,6 @@ origin_wilderness = {
             NOR = {
                 value = civic_hive_toxic_baths
                 value = civic_entropy_drinkers_hive_mind
-                value = civic_hive_superstitious_beliefs
                 value = civic_twisted_experimenters_hive_mind
                 value = civic_hive_chosen
                 value = civic_hive_world_forgers

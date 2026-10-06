@@ -8,10 +8,11 @@ civic_hive_subsumed_will = {
     swap_type = {
         name = civic_hive_subsumed_will
         trigger = { is_wilderness_empire = no }
+        description = "civic_hive_subsumed_will_effects"
         modifier = {
-            description = "civic_hive_subsumed_will_effects"
             empire_size_pops_mult = -0.1
-            planet_resettlement_unemployed_mult = 0.5 }
+            planet_resettlement_unemployed_mult = 0.5
+        }
     }
     swap_type = {
         name = civic_wilderness_subsumed_will
@@ -20,6 +21,7 @@ civic_hive_subsumed_will = {
         modifier = {
             empire_size_districts_mult = -0.25
             empire_size_colonies_mult = -0.25
+            planet_resettlement_unemployed_mult = 0.5
         }
     }
 
@@ -107,7 +109,6 @@ civic_hive_catalytic_processing = {
 civic_hive_sovereign_guardianship = {
 	playable = { has_astral_planes_dlc = yes }
 	ai_playable = { has_astral_planes_dlc = yes }
-	description = "civic_hive_sovereign_guardianship_effects"
     potential = {
         authority = { value = auth_hive_mind }
     }
@@ -124,6 +125,7 @@ civic_hive_sovereign_guardianship = {
     swap_type = {
         name = civic_hive_sovereign_guardianship
         trigger = { is_wilderness_empire = no }
+        description = "civic_hive_sovereign_guardianship_effects"
         modifier = {
             empire_size_colonies_mult = 0.75
             empire_size_systems_mult = 1.5
@@ -134,6 +136,7 @@ civic_hive_sovereign_guardianship = {
     swap_type = {
         name = civic_wilderness_sovereign_guardianship
         trigger = { is_wilderness_empire = yes }
+        description = "civic_hive_sovereign_guardianship_effects"
         modifier = {
             empire_size_systems_mult = 0.75
             empire_size_pops_mult = 1.5
@@ -187,12 +190,11 @@ civic_hive_natural_design = {
         }
     }
 
-    description = civic_hive_tooltip_natural_design_effects
-    negative_description = civic_hive_tooltip_natural_design_negative_effects
-
     swap_type = {
         name = civic_hive_natural_design
         trigger = { is_wilderness_empire = no }
+        description = civic_hive_tooltip_natural_design_effects
+        negative_description = civic_hive_tooltip_natural_design_negative_effects
         modifier = {
             councilor_gestalt_growth_exp_gain = @gestalt_civic_node_xp_rate
             BIOLOGICAL_species_trait_picks_add = 2
@@ -204,6 +206,7 @@ civic_hive_natural_design = {
     swap_type = {
         name = civic_wilderness_natural_design
         trigger = { is_wilderness_empire = yes }
+        negative_description = civic_hive_tooltip_natural_design_negative_effects
         modifier = {
             councilor_gestalt_growth_exp_gain = @gestalt_civic_node_xp_rate
             BIOLOGICAL_species_trait_picks_add = 2
@@ -346,5 +349,7 @@ civic_environmental_architects_hive = {
     swap_type = {
         name = civic_environmental_architects_wilderness
         trigger = { is_wilderness_empire = yes }
+        description = civic_environmental_architects_hive_effect_tooltip
+        negative_description = civic_environmental_architects_negative_effect_tooltip
     }
 }

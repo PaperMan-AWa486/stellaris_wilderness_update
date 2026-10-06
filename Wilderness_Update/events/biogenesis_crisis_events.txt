@@ -262,7 +262,6 @@ country_event = {
 					pop_amount > 500
 				}
 				random_list = {
-					20 = {}
 					20 = {
 						weighted_random_owned_pop_group = {
 							kill_single_pop = yes
@@ -316,6 +315,20 @@ country_event = {
 							}
 						}
 					}
+                    20 = {
+                        while = {
+                            count = 4
+                            weighted_random_owned_pop_group = {
+                                kill_single_pop = yes
+                            }
+                        }
+                        owner = {
+                            change_variable = {
+                                which = pops_transferred
+                                value = 500
+                            }
+                        }
+                    }
 				}
 			}
 			# Set up event to kill some transference workers every six months

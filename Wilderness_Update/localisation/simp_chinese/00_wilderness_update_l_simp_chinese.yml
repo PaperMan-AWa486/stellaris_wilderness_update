@@ -1,10 +1,10 @@
 ﻿l_simp_chinese:
  ap_hydrocentric_wilderness: "$ap_hydrocentric$"
  ap_hydrocentric_wilderness_desc: "荒野让潮汐、藻群与共生体同时铺展到每一处海床与浅滩。经此改造的海洋星球会以远超以往的密度承接生命，为更多共生体腾出岗位。"
- ap_hydrocentric_wilderness_tt: "可以在恒星基地建设§Y冰开采站§!，并以此在§Y海洋§!星球上解锁§Y$decision_expand_planetary_sea$§!决议。\n具有§Y$trait_aquatic$§!特质的物种在§Y海洋§!星球上可以获得额外50%的加成，但生活在非§Y潮湿§!星球上的惩罚也会相应增大。\n§Y海洋星球§!上所有的£district£ ['concept_districts']§G无上限§!"
+ ap_hydrocentric_wilderness_tt: "可以在恒星基地建设§Y冰开采站§!，并以此在§Y海洋§!星球上解锁§Y$decision_expand_planetary_sea$§!决议。\n具有§Y$trait_aquatic$§!特质的物种在§Y海洋§!星球上可以获得额外50%的加成，但生活在非§Y潮湿§!星球上的惩罚也会相应增大。\n§Y海洋星球§!上所有的£district£ ['concept_districts']§G无上限§!，并且研究$tech_climate_restoration$后，£district£ ['concept_districts']和£zone£ ['concept_district_specialization']还会提供更多岗位。"
  ap_world_shaper_wilderness: "$ap_world_shaper$"
  ap_world_shaper_wilderness_desc: "荒野并不满足于雕琢出一颗完美的花园世界，而是让其本身成为一座活着的巢城，叶冠、根系与共生体层层叠叠地承担劳作。这样的星球能容纳远超以往的生命。"
- ap_world_shaper_wilderness_tt: "$allow_gaia$\n§Y盖亚星球§!上所有的£district£ ['concept_districts']§G无上限§!"
+ ap_world_shaper_wilderness_tt: "$allow_gaia$\n§Y盖亚星球§!上所有的£district£ ['concept_districts']§G无上限§!，并且£district£ ['concept_districts']和£zone£ ['concept_district_specialization']会提供更多岗位。"
 
  civic_wilderness_subsumed_will: "疆域整合"
  civic_wilderness_subsumed_will_desc: "荒野的共生神经网络已深植于每一处生态循环，其集体意志如菌丝般渗透所有共生体。"
@@ -24,7 +24,7 @@
  civic_wilderness_sovereign_guardianship_desc: "荒野将牢牢掌控行星生态作为意识的根基，因此在漫长演化中形成了固守领土的深层本能，现在它将这种防御哲学延伸至星空。边界必须稳固，但在此范围内的共生体可保持适度自主，以维持生态的弹性与活力。"
  civic_wilderness_guided_sapience: "创世共生"
  civic_wilderness_guided_sapience_desc: "荒野划定特定生态区作为生命实验场，主动引导新物种的涌现与分化，成为生命潜能的监督者与牧养者。"
- civic_wilderness_guided_sapience_effects: "—$PLANETARY_FEATURES$§Y$d_genesis_preserve$§!\n—可用决议：§Y$decision_rebuild_genesis_preserve$§!\n—提升$PRESAPIENT$物种可获得$r_unity$"
+ civic_wilderness_guided_sapience_effects: "—$PLANETARY_FEATURES$§Y$d_genesis_preserve$§!\n—新殖民的行星：$PRESAPIENT$人口：§G+300§!\n—可用决议：§Y$decision_rebuild_genesis_preserve$§!\n—提升$PRESAPIENT$物种可获得$r_unity$"
  civic_astrometeorology_wilderness: "风暴感应"
  civic_astrometeorology_wilderness_desc: "为研究星际气象现象，荒野演化出可感知宇宙射电与粒子风暴的特化器官，并驱使生态向风暴区延伸。"
  civic_environmental_architects_wilderness: "系统织补"

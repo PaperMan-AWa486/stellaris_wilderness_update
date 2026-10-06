@@ -4,7 +4,7 @@ ap_hydrocentric = {
         NOT = { has_ascension_perk = ap_hydrocentric }
         OR = {
             has_trait = trait_pc_ocean_preference
-            has_trait = trait_wet_planet_preference
+            has_trait = trait_cyborg_climate_adjustment_wet
             has_trait = trait_robot_aquatic
             has_trait = trait_auto_hab_preference
         }
@@ -14,18 +14,20 @@ ap_hydrocentric = {
         has_technology = tech_terrestrial_sculpting
         OR = {
             has_aquatic_trait = yes
-            has_trait = trait_wet_planet_preference
             has_trait = trait_auto_hab_preference
         }
     }
 
-    modifier = {
-        terraforming_ocean_cost_mult = -0.25
-        add_attunement_the_composer_of_strands = @ascension_perk_attunement1
-    }
-
     on_enabled = {
-        custom_tooltip = ap_hydrocentric_tooltip
+        if = {
+            limit = {
+                is_wilderness_empire = yes
+            }
+            custom_tooltip = ap_hydrocentric_wilderness_tt
+        }
+        else = {
+            custom_tooltip = ap_hydrocentric_tooltip
+        }
         if = {
             limit = {
                 host_has_dlc = "Apocalypse"
@@ -43,36 +45,17 @@ ap_hydrocentric = {
         }
     }
 
+    modifier = {
+        terraforming_ocean_cost_mult = -0.25
+        add_attunement_the_composer_of_strands = @ascension_perk_attunement1
+    }
+
     tradition_swap = {
         name = ap_hydrocentric_wilderness
-        inherit_effects = no
+        inherit_effects = yes
         inherit_icon = yes
         trigger = {
             is_wilderness_empire = yes
-        }
-
-        modifier = {
-            terraforming_ocean_cost_mult = -0.25
-            add_attunement_the_composer_of_strands = @ascension_perk_attunement1
-        }
-
-        on_enabled = {
-            custom_tooltip = ap_hydrocentric_wilderness_tt
-            if = {
-                limit = {
-                    host_has_dlc = "Apocalypse"
-                }
-                if = {
-                    limit = { has_ascension_perk = ap_colossus }
-                    custom_tooltip = ap_hydrocentric_deluge_tooltip
-                }
-                else = {
-                    custom_tooltip = ap_hydrocentric_deluge_pre_unlock_tooltip
-                }
-            }
-            hidden_effect = {
-                country_event = { id = aquatics.1 }
-            }
         }
     }
 
@@ -96,10 +79,30 @@ ap_hydrocentric = {
 
 ap_world_shaper = {
     possible = {
-        has_technology = tech_ecological_adaptation
+        custom_tooltip = {
+            fail_text = "requires_technology_tech_climate_restoration"
+            has_technology = tech_climate_restoration
+        }
         custom_tooltip = {
             fail_text = "requires_ascension_perks_1"
             num_ascension_perks > 0
+        }
+    }
+
+    modifier = {
+        terraforming_cost_mult = -0.25
+        add_attunement_the_composer_of_strands = @ascension_perk_attunement1
+    }
+
+    on_enabled = {
+        if = {
+            limit = {
+                is_wilderness_empire = yes
+            }
+            custom_tooltip = ap_world_shaper_wilderness_tt
+        }
+        else = {
+            custom_tooltip = "allow_gaia"
         }
     }
 
@@ -119,30 +122,12 @@ ap_world_shaper = {
         }
     }
 
-    modifier = {
-        terraforming_cost_mult = -0.25
-        add_attunement_the_composer_of_strands = @ascension_perk_attunement1
-    }
-
-    on_enabled = {
-        custom_tooltip = "allow_gaia"
-    }
-
     tradition_swap = {
         name = ap_world_shaper_wilderness
-        inherit_effects = no
+        inherit_effects = yes
         inherit_icon = yes
         trigger = {
             is_wilderness_empire = yes
-        }
-
-        modifier = {
-            terraforming_cost_mult = -0.25
-            add_attunement_the_composer_of_strands = @ascension_perk_attunement1
-        }
-
-        on_enabled = {
-            custom_tooltip = ap_world_shaper_wilderness_tt
         }
     }
 
